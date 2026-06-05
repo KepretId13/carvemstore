@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CarvenStore — Jasa Musik</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="noise" aria-hidden="true"></div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="brand">CRV<span>.</span></div>
+      <span class="tagline">CREATE · RESTRUCTURE · VISUAL</span>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Menu</div>
+      <a href="index.html" class="nav-item">
+        <span class="nav-icon">⚡</span> Dashboard
+      </a>
+      <a href="music.html" class="nav-item active">
+        <span class="nav-icon">🎵</span> Jasa Musik
+        <span class="nav-badge">HOT</span>
+      </a>
+      <a href="social.html" class="nav-item">
+        <span class="nav-icon">📲</span> Jasa Sosmed
+        <span class="nav-badge purple">NEW</span>
+      </a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Coming Soon</div>
+      <a class="nav-item coming">
+        <span class="nav-icon">🎨</span> Jasa Desain
+        <span class="nav-badge">SOON</span>
+      </a>
+      <a class="nav-item coming">
+        <span class="nav-icon">📹</span> Jasa Video
+        <span class="nav-badge">SOON</span>
+      </a>
+      <a class="nav-item coming">
+        <span class="nav-icon">✦</span> More
+        <span class="nav-badge">SOON</span>
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="version">v1.0.0 · CarvenStore</div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <button class="burger" id="burger">&#9776;</button>
+        <div class="topbar-title">CarvenStore / <span>Jasa Musik</span></div>
+      </div>
+      <div class="topbar-actions">
+        <a href="https://wa.me/62XXXXXXXXXXXX" class="topbar-wa" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <div class="page-header reveal">
+        <div class="eyebrow">JASA MUSIK CUSTOM</div>
+        <h1>Lagu yang Lu<br>Bayangin, Gw Bikin.</h1>
+        <p>Dari briefing sampai file WAV. Genre bebas, lirik disesuaikan kebutuhan lu, revisi sampai puas.</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-card reveal" style="--accent:var(--neon)">
+          <div class="s-label">LAGU JADI</div>
+          <div class="s-num" data-target="50" data-suffix="+">0</div>
+          <div class="s-sub">Berbagai genre</div>
+        </div>
+        <div class="stat-card reveal" style="--accent:var(--neon2)">
+          <div class="s-label">KLIEN MUSIK</div>
+          <div class="s-num" data-target="80" data-suffix="+">0</div>
+          <div class="s-sub">Brand, event, kreator</div>
+        </div>
+        <div class="stat-card reveal" style="--accent:var(--neon4)">
+          <div class="s-label">WAKTU PENGERJAAN</div>
+          <div class="s-num" data-static="true">5-7H</div>
+          <div class="s-sub">Hari kerja rata-rata</div>
+        </div>
+        <div class="stat-card reveal" style="--accent:var(--neon3)">
+          <div class="s-label">FORMAT OUTPUT</div>
+          <div class="s-num" data-static="true">WAV</div>
+          <div class="s-sub">+ MP3 gratis</div>
+        </div>
+      </div>
+
+      <!-- Service List -->
+      <div class="sec-title reveal">Pilih Jenis Lagu</div>
+      <div class="service-list">
+
+        <div class="service-item reveal" data-service="jingle">
+          <div class="si-icon">📢</div>
+          <div class="si-info">
+            <div class="si-name">Jingle Komersial</div>
+            <div class="si-desc">Iklan TV, radio, konten digital. Catchy, singkat, nempel di kepala.</div>
+          </div>
+          <div class="si-price">Rp 250rb<small>per lagu</small></div>
+        </div>
+
+        <div class="service-item reveal" data-service="mars">
+          <div class="si-icon">🏛️</div>
+          <div class="si-info">
+            <div class="si-name">Mars / Hymne</div>
+            <div class="si-desc">Lagu resmi organisasi, sekolah, perusahaan, atau komunitas.</div>
+          </div>
+          <div class="si-price">Rp 300rb<small>per lagu</small></div>
+        </div>
+
+        <div class="service-item reveal" data-service="jungle">
+          <div class="si-icon">🌿</div>
+          <div class="si-info">
+            <div class="si-name">Jungle / EDM / Electronic</div>
+            <div class="si-desc">Track elektronik untuk konten, gaming, atau event. Full banger.</div>
+          </div>
+          <div class="si-price">Rp 300rb<small>per track</small></div>
+        </div>
+
+        <div class="service-item reveal" data-service="ost">
+          <div class="si-icon">🎬</div>
+          <div class="si-info">
+            <div class="si-name">OST / Soundtrack</div>
+            <div class="si-desc">Musik latar untuk film pendek, game, podcast, atau YouTube.</div>
+          </div>
+          <div class="si-price">Rp 350rb<small>per track</small></div>
+        </div>
+
+        <div class="service-item reveal" data-service="instrumental">
+          <div class="si-icon">🎹</div>
+          <div class="si-info">
+            <div class="si-name">Instrumental / Background Music</div>
+            <div class="si-desc">Musik tanpa vokal. Cocok buat vlog, presentasi, atau event.</div>
+          </div>
+          <div class="si-price">Rp 200rb<small>per track</small></div>
+        </div>
+
+        <div class="service-item reveal" data-service="custom">
+          <div class="si-icon">✨</div>
+          <div class="si-info">
+            <div class="si-name">Lagu Custom (Genre Bebas)</div>
+            <div class="si-desc">Pop, R&B, hip-hop, dangdut, jazz, lo-fi — bebas request.</div>
+          </div>
+          <div class="si-price">Rp 250rb+<small>tergantung genre</small></div>
+        </div>
+
+      </div>
+
+      <!-- Pricing Packages -->
+      <div class="sec-title reveal">Paket Harga</div>
+      <div class="cards-grid reveal">
+
+        <div class="card" style="--accent:var(--neon)">
+          <div class="card-head">
+            <span class="card-badge green">BASIC</span>
+          </div>
+          <h3>Paket Basic</h3>
+          <div class="card-price">Rp 200.000</div>
+          <div class="service-list" style="margin:0 0 1rem;gap:.5rem">
+            <div style="font-family:var(--fmono);font-size:.74rem;color:var(--muted);display:flex;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--neon)">→</span> Durasi hingga 1 menit</div>
+            <div style="font-family:var(--fmono);font-size:.74rem;color:var(--muted);display:flex;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--neon)">→</span> Revisi 1x</div>
+            <div style="font-family:var(--fmono);font-size:.74rem;color:var(--muted);display:flex;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--neon)">→</span> Format MP3</div>
+            <div style="font-family:var(--fmono);font-size:.74rem;color:var(--muted);display:flex;gap:.5rem;padding:.3rem 0"><span style="color:var(--neon)">→</span> Pengiriman 3-5 hari</div>
+          </div>
+          <button class="btn btn-ghost btn-full btn-sm" onclick="document.getElementById('order-panel').scrollIntoView({behavior:'smooth'})">ORDER SEKARANG</button>
+        </div>
+
+        <div class="card" style="--accent:var(--neon);border-color:var(--neon);background:rgba(0,245,160,.02)">
+          <div class="card-head">
+            <span class="card-badge green">STANDARD ⭐</span>
+          </div>
+          <h3>Paket Standard</h3>
+          <div class="card-price">Rp 300.000</div>
+          <div class="service-list" style="margin:0 0 1rem;gap:.5rem">
+            <div style="font-family:var(--fmono);font-size:.74rem;color:var(--muted);display:flex;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--neon)">→</span> Durasi 1-2 menit</div>
+            <div style="font-family:var(--fmono);font-size:.74rem;color:var(--muted);display:flex;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--neon)">→</span> Revisi 2x</div>
+            <div style="font-family:var(--fmono);font-size:.74rem;color:var(--muted);display:flex;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--neon)">→</span> Format WAV + MP3</div>
+            <div style="font-family:var(--fmono);font-size:.74rem;color:var(--muted);display:flex;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--neon)">→</span> Lirik custom</div>
+            <div style="font-family:var(--fmono);font-size:.74rem;color:var(--muted);display:flex;gap:.5rem;padding:.3rem 0"><span style="color:var(--neon)">→</span> Pengiriman 5-7 hari</div>
+          </div>
+          <button class="btn btn-neon btn-full btn-sm" onclick="document.getElementById('order-panel').scrollIntoView({behavior:'smooth'})">ORDER SEKARANG</button>
+        </div>
+
+        <div class="card" style="--accent:var(--neon3)">
+          <div class="card-head">
+            <span class="card-badge red">PREMIUM</span>
+          </div>
+          <h3>Paket Premium</h3>
+          <div class="card-price">Rp 500.000</div>
+          <div class="service-list" style="margin:0 0 1rem;gap:.5rem">
+            <div style="font-family:var(--fmono);font-size:.74rem;color:var(--muted);display:flex;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--neon3)">→</span> Durasi bebas</div>
+            <div style="font-family:var(--fmono);font-size:.74rem;color:var(--muted);display:flex;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--neon3)">→</span> Revisi unlimited</div>
+            <div style="font-family:var(--fmono);font-size:.74rem;color:var(--muted);display:flex;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--neon3)">→</span> Format WAV + MP3 + stems</div>
+            <div style="font-family:var(--fmono);font-size:.74rem;color:var(--muted);display:flex;gap:.5rem;padding:.3rem 0;border-bottom:1px solid var(--border)"><span style="color:var(--neon3)">→</span> Full hak cipta</div>
+            <div style="font-family:var(--fmono);font-size:.74rem;color:var(--muted);display:flex;gap:.5rem;padding:.3rem 0"><span style="color:var(--neon3)">→</span> Priority 3-5 hari</div>
+          </div>
+          <button class="btn btn-ghost btn-full btn-sm" style="border-color:var(--neon3);color:var(--neon3)" onclick="document.getElementById('order-panel').scrollIntoView({behavior:'smooth'})">ORDER SEKARANG</button>
+        </div>
+
+      </div>
+
+      <!-- Order Form -->
+      <div class="order-panel reveal" id="order-panel">
+        <div class="order-panel-title">🎵 Form Order Musik</div>
+        <form class="crv-form" id="musicForm">
+          <div class="form-grid">
+            <div class="fg">
+              <label for="f-name">NAMA / BRAND</label>
+              <input type="text" id="f-name" placeholder="Nama lu atau brand" data-required>
+              <span class="ferr" id="err-f-name">Wajib diisi.</span>
+            </div>
+            <div class="fg">
+              <label for="f-contact">KONTAK (WA/IG)</label>
+              <input type="text" id="f-contact" placeholder="@username atau nomor WA" data-required>
+              <span class="ferr" id="err-f-contact">Wajib diisi.</span>
+            </div>
+            <div class="fg full">
+              <label for="f-service">JENIS LAGU</label>
+              <select id="f-service" data-required>
+                <option value="">Pilih jenis lagu</option>
+                <option value="jingle">Jingle Komersial — Rp 250rb</option>
+                <option value="mars">Mars / Hymne — Rp 300rb</option>
+                <option value="jungle">Jungle / EDM — Rp 300rb</option>
+                <option value="ost">OST / Soundtrack — Rp 350rb</option>
+                <option value="instrumental">Instrumental — Rp 200rb</option>
+                <option value="custom">Lagu Custom Genre Bebas — Rp 250rb+</option>
+              </select>
+              <span class="ferr" id="err-f-service">Pilih dulu jenis lagunya.</span>
+            </div>
+            <div class="fg full">
+              <label for="f-paket">PAKET</label>
+              <select id="f-paket">
+                <option value="">Pilih paket</option>
+                <option value="basic">Basic — Rp 200rb</option>
+                <option value="standard">Standard — Rp 300rb</option>
+                <option value="premium">Premium — Rp 500rb</option>
+                <option value="diskusi">Diskusi dulu</option>
+              </select>
+            </div>
+            <div class="fg full">
+              <label for="f-ref">REFERENSI LAGU (OPSIONAL)</label>
+              <input type="text" id="f-ref" placeholder="Link YouTube atau nama lagu referensi">
+            </div>
+            <div class="fg full">
+              <label for="f-desc">DESKRIPSI KEBUTUHAN</label>
+              <textarea id="f-desc" placeholder="Ceritain detail kebutuhan lu. Tema, suasana, lirik kasar, durasi, dll. Makin detail makin bagus." data-required></textarea>
+              <span class="ferr" id="err-f-desc">Tolong isi deskripsi kebutuhan lu.</span>
+            </div>
+          </div>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center">
+            <button type="submit" class="btn btn-neon" data-label="KIRIM ORDER">KIRIM ORDER</button>
+            <a href="https://wa.me/62XXXXXXXXXXXX" class="btn btn-ghost" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              CHAT WA
+            </a>
+          </div>
+          <div class="success-banner" id="successMsg">Order masuk! Gw bakal kabarin lu dalam 24 jam. 🔥</div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
