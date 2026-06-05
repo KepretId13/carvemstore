@@ -1,228 +1,160 @@
 /* ============================================
-   CARVENSTORE — main.js
+   CARVENSTORE — main.js (Shared)
    ============================================ */
+(function () {
 
-/* ---- NAVBAR SCROLL STATE ---- */
-const navbar = document.getElementById('navbar');
+  /* ---- SIDEBAR TOGGLE (mobile) ---- */
+  var sidebar  = document.getElementById('sidebar');
+  var overlay  = document.getElementById('sidebarOverlay');
+  var burger   = document.getElementById('burger');
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 40) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-}, { passive: true });
+  function openSidebar()  { sidebar.classList.add('open');  overlay.classList.add('show'); }
+  function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('show'); }
 
+  if (burger)  burger.addEventListener('click', openSidebar);
+  if (overlay) overlay.addEventListener('click', closeSidebar);
 
-/* ---- MOBILE MENU TOGGLE ---- */
-const navBurger = document.getElementById('navBurger');
-const mobileMenu = document.getElementById('mobileMenu');
-
-navBurger.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
-});
-
-// Close mobile menu on link click
-document.querySelectorAll('.mobile-link').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-  });
-});
-
-// Close mobile menu on outside click
-document.addEventListener('click', (e) => {
-  if (!navbar.contains(e.target) && !mobileMenu.contains(e.target)) {
-    mobileMenu.classList.remove('open');
-  }
-});
-
-
-/* ---- COUNTER ANIMATION ---- */
-function animateCounter(el) {
-  if (el.dataset.static) return;
-
-  const target = parseInt(el.dataset.target, 10);
-  const suffix = el.dataset.suffix || '+';
-  const duration = 1800;
-  const startTime = performance.now();
-
-  function formatValue(val) {
-    if (target >= 1000000) {
-      return (val / 1000000).toFixed(1) + suffix;
-    }
-    return Math.round(val) + suffix;
-  }
-
-  function step(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = eased * target;
-
-    el.textContent = formatValue(current);
-
-    if (progress < 1) {
-      requestAnimationFrame(step);
-    } else {
-      el.textContent = formatValue(target);
-    }
-  }
-
-  requestAnimationFrame(step);
-}
-
-// Trigger counter when stats bar is visible
-const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      document.querySelectorAll('.stat-num[data-target]').forEach(animateCounter);
-      statsObserver.disconnect();
-    }
-  });
-}, { threshold: 0.3 });
-
-const statsBar = document.querySelector('.stats-bar');
-if (statsBar) statsObserver.observe(statsBar);
-
-
-/* ---- SCROLL REVEAL ---- */
-const revealElements = document.querySelectorAll(
-  '.service-card, .price-card, .section-title, .section-sub, .section-tag'
-);
-
-revealElements.forEach(el => el.classList.add('reveal'));
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-revealElements.forEach(el => revealObserver.observe(el));
-
-
-/* ---- ACTIVE NAV LINK ON SCROLL ---- */
-const sections = document.querySelectorAll('section[id], div[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.getAttribute('id');
-      navLinks.forEach(link => {
-        link.style.color = link.getAttribute('href') === `#${id}`
-          ? 'var(--neon)'
-          : '';
-      });
-    }
-  });
-}, { threshold: 0.4 });
-
-sections.forEach(section => sectionObserver.observe(section));
-
-
-/* ---- SCROLL TO ORDER ---- */
-function scrollToOrder() {
-  document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
-}
-
-
-/* ---- FORM VALIDATION & SUBMIT ---- */
-const orderForm = document.getElementById('orderForm');
-const successMsg = document.getElementById('successMsg');
-
-const fields = [
-  { id: 'f-name',    errId: 'err-name',    msg: 'Nama / brand wajib diisi.' },
-  { id: 'f-contact', errId: 'err-contact', msg: 'Kontak WA atau IG wajib diisi.' },
-  { id: 'f-service', errId: 'err-service', msg: 'Pilih dulu jasa yang lu mau.' },
-  { id: 'f-desc',    errId: 'err-desc',    msg: 'Deskripsiin kebutuhan lu dong.' },
-];
-
-function clearErrors() {
-  fields.forEach(({ id, errId }) => {
-    const input = document.getElementById(id);
-    const err   = document.getElementById(errId);
-    if (input) input.classList.remove('error');
-    if (err)   err.classList.remove('visible');
-  });
-}
-
-function validateForm() {
-  let valid = true;
-
-  fields.forEach(({ id, errId, msg }) => {
-    const input = document.getElementById(id);
-    const err   = document.getElementById(errId);
-    if (!input) return;
-
-    const isEmpty = input.value.trim() === '' || input.value === '';
-
-    if (isEmpty) {
-      input.classList.add('error');
-      if (err) {
-        err.textContent = msg;
-        err.classList.add('visible');
-      }
-      valid = false;
-    }
-  });
-
-  return valid;
-}
-
-if (orderForm) {
-  orderForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    clearErrors();
-    successMsg.classList.remove('visible');
-
-    if (!validateForm()) return;
-
-    // Simulate submit (replace with actual endpoint / WA redirect logic)
-    const btn = orderForm.querySelector('button[type="submit"]');
-    btn.textContent = 'MENGIRIM...';
-    btn.disabled = true;
-
-    setTimeout(() => {
-      successMsg.classList.add('visible');
-      orderForm.reset();
-      btn.textContent = 'KIRIM ORDER';
-      btn.disabled = false;
-
-      // Scroll success message into view
-      successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 1000);
-  });
-
-  // Clear error on input
-  fields.forEach(({ id, errId }) => {
-    const input = document.getElementById(id);
-    const err   = document.getElementById(errId);
-    if (!input) return;
-
-    input.addEventListener('input', () => {
-      input.classList.remove('error');
-      if (err) err.classList.remove('visible');
+  /* Close sidebar on nav link click (mobile) */
+  document.querySelectorAll('.nav-item').forEach(function (el) {
+    el.addEventListener('click', function () {
+      if (window.innerWidth <= 900) closeSidebar();
     });
   });
-}
 
+  /* ---- SCROLL REVEAL ---- */
+  var reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          ro.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    reveals.forEach(function (el) { ro.observe(el); });
+  }
 
-/* ---- OPTIONAL: WA REDIRECT AFTER ORDER ---- */
-// Uncomment line below to auto-open WA after form submit with pre-filled message
-//
-// function buildWAMessage() {
-//   const name    = document.getElementById('f-name').value;
-//   const contact = document.getElementById('f-contact').value;
-//   const service = document.getElementById('f-service').value;
-//   const desc    = document.getElementById('f-desc').value;
-//   const budget  = document.getElementById('f-budget').value;
-//   const msg = `Halo CarvenStore!\n\nNama: ${name}\nKontak: ${contact}\nJasa: ${service}\nDeskripsi: ${desc}\nBudget: ${budget}`;
-//   return encodeURIComponent(msg);
-// }
-//
-// Paste this inside the setTimeout callback:
-// window.open(`https://wa.me/62XXXXXXXXXXXX?text=${buildWAMessage()}`, '_blank');
+  /* ---- COUNTER ANIMATION ---- */
+  function animateCount(el) {
+    if (el.dataset.static) return;
+    var target   = parseFloat(el.dataset.target);
+    var suffix   = el.dataset.suffix || '';
+    var prefix   = el.dataset.prefix || '';
+    var decimals = el.dataset.decimals ? parseInt(el.dataset.decimals) : 0;
+    var dur      = 1600;
+    var start    = performance.now();
+
+    function fmt(v) {
+      return prefix + (decimals ? v.toFixed(decimals) : Math.round(v)) + suffix;
+    }
+
+    function step(now) {
+      var p = Math.min((now - start) / dur, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(e * target);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = fmt(target);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var counters = document.querySelectorAll('[data-target]');
+  if (counters.length) {
+    var co = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          animateCount(e.target);
+          co.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (el) { co.observe(el); });
+  }
+
+  /* ---- PLATFORM FILTER (social.html) ---- */
+  var pfBtns = document.querySelectorAll('.pf-btn');
+  pfBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      pfBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var filter = btn.dataset.filter;
+      document.querySelectorAll('.service-item').forEach(function (item) {
+        if (filter === 'all' || item.dataset.platform === filter) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  /* ---- GENERIC FORM HANDLER ---- */
+  var forms = document.querySelectorAll('.crv-form');
+  forms.forEach(function (form) {
+    var fields = form.querySelectorAll('[data-required]');
+    var successEl = form.querySelector('.success-banner');
+
+    function clearErrs() {
+      fields.forEach(function (f) {
+        f.classList.remove('err');
+        var errEl = document.getElementById('err-' + f.id);
+        if (errEl) errEl.classList.remove('show');
+      });
+    }
+
+    function validate() {
+      var ok = true;
+      fields.forEach(function (f) {
+        if (!f.value.trim()) {
+          f.classList.add('err');
+          var errEl = document.getElementById('err-' + f.id);
+          if (errEl) errEl.classList.add('show');
+          ok = false;
+        }
+      });
+      return ok;
+    }
+
+    fields.forEach(function (f) {
+      f.addEventListener('input', function () {
+        f.classList.remove('err');
+        var errEl = document.getElementById('err-' + f.id);
+        if (errEl) errEl.classList.remove('show');
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearErrs();
+      if (successEl) successEl.classList.remove('show');
+      if (!validate()) return;
+
+      var btn = form.querySelector('[type="submit"]');
+      if (btn) { btn.textContent = 'MENGIRIM...'; btn.disabled = true; }
+
+      setTimeout(function () {
+        if (successEl) {
+          successEl.classList.add('show');
+          successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        form.reset();
+        if (btn) { btn.textContent = btn.dataset.label || 'KIRIM ORDER'; btn.disabled = false; }
+      }, 900);
+    });
+  });
+
+  /* ---- SERVICE ITEM CLICK → fill select ---- */
+  document.querySelectorAll('.service-item[data-service]').forEach(function (item) {
+    item.addEventListener('click', function () {
+      var sel = document.getElementById('f-service');
+      if (sel) {
+        sel.value = item.dataset.service;
+        sel.dispatchEvent(new Event('change'));
+        var panel = document.getElementById('order-panel');
+        if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+})();
