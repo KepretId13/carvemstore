@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CarvenStore — Jasa Sosial Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="noise" aria-hidden="true"></div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="brand">CRV<span>.</span></div>
+      <span class="tagline">CREATE · RESTRUCTURE · VISUAL</span>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Menu</div>
+      <a href="index.html" class="nav-item">
+        <span class="nav-icon">⚡</span> Dashboard
+      </a>
+      <a href="music.html" class="nav-item">
+        <span class="nav-icon">🎵</span> Jasa Musik
+        <span class="nav-badge">HOT</span>
+      </a>
+      <a href="social.html" class="nav-item active">
+        <span class="nav-icon">📲</span> Jasa Sosmed
+        <span class="nav-badge purple">NEW</span>
+      </a>
+      <div class="nav-divider"></div>
+      <div class="nav-section-label">Coming Soon</div>
+      <a class="nav-item coming">
+        <span class="nav-icon">🎨</span> Jasa Desain
+        <span class="nav-badge">SOON</span>
+      </a>
+      <a class="nav-item coming">
+        <span class="nav-icon">📹</span> Jasa Video
+        <span class="nav-badge">SOON</span>
+      </a>
+      <a class="nav-item coming">
+        <span class="nav-icon">✦</span> More
+        <span class="nav-badge">SOON</span>
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="version">v1.0.0 · CarvenStore</div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <button class="burger" id="burger">&#9776;</button>
+        <div class="topbar-title">CarvenStore / <span>Jasa Sosmed</span></div>
+      </div>
+      <div class="topbar-actions">
+        <a href="https://wa.me/62XXXXXXXXXXXX" class="topbar-wa" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <div class="page-header reveal">
+        <div class="eyebrow">JASA SOCIAL MEDIA GROWTH</div>
+        <h1>Boost Akun Lu<br>di Semua Platform.</h1>
+        <p>Follower, subscriber, likes, views, comment. Real, aman, dan cepat. Pilih platform, pilih metrik.</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-card reveal" style="--accent:var(--neon2)">
+          <div class="s-label">TOTAL DELIVERED</div>
+          <div class="s-num" data-target="1" data-suffix="M+">0</div>
+          <div class="s-sub">Followers & engagement</div>
+        </div>
+        <div class="stat-card reveal" style="--accent:var(--neon4)">
+          <div class="s-label">PLATFORM</div>
+          <div class="s-num" data-static="true">5+</div>
+          <div class="s-sub">IG, TikTok, YT, dan lainnya</div>
+        </div>
+        <div class="stat-card reveal" style="--accent:var(--neon)">
+          <div class="s-label">PROSES MULAI</div>
+          <div class="s-num" data-static="true">1-3H</div>
+          <div class="s-sub">Setelah konfirmasi</div>
+        </div>
+        <div class="stat-card reveal" style="--accent:var(--neon3)">
+          <div class="s-label">HARGA MULAI</div>
+          <div class="s-num" data-static="true">10rb</div>
+          <div class="s-sub">Per paket</div>
+        </div>
+      </div>
+
+      <!-- Platform Filter -->
+      <div class="sec-title reveal">Filter Platform</div>
+      <div class="platform-filter reveal">
+        <button class="pf-btn active" data-filter="all">🌐 Semua</button>
+        <button class="pf-btn" data-filter="instagram">📸 Instagram</button>
+        <button class="pf-btn" data-filter="tiktok">🎵 TikTok</button>
+        <button class="pf-btn" data-filter="youtube">▶️ YouTube</button>
+        <button class="pf-btn" data-filter="twitter">✖️ Twitter/X</button>
+        <button class="pf-btn" data-filter="telegram">✈️ Telegram</button>
+      </div>
+
+      <!-- Service Items -->
+      <div class="service-list">
+
+        <!-- INSTAGRAM -->
+        <div class="service-item reveal" data-platform="instagram" data-service="ig-followers">
+          <div class="si-icon">📸</div>
+          <div class="si-info">
+            <div class="si-name">Instagram — Followers</div>
+            <div class="si-desc">Tambah followers akun Instagram lu. Real & aktif.</div>
+          </div>
+          <div class="si-price">Rp 15rb<small>per 1.000</small></div>
+        </div>
+
+        <div class="service-item reveal" data-platform="instagram" data-service="ig-likes">
+          <div class="si-icon">❤️</div>
+          <div class="si-info">
+            <div class="si-name">Instagram — Likes</div>
+            <div class="si-desc">Boost likes foto atau reel Instagram.</div>
+          </div>
+          <div class="si-price">Rp 10rb<small>per 1.000</small></div>
+        </div>
+
+        <div class="service-item reveal" data-platform="instagram" data-service="ig-views">
+          <div class="si-icon">👁️</div>
+          <div class="si-info">
+            <div class="si-name">Instagram — Views Reels</div>
+            <div class="si-desc">Tambah views reels / story Instagram.</div>
+          </div>
+          <div class="si-price">Rp 8rb<small>per 1.000</small></div>
+        </div>
+
+        <div class="service-item reveal" data-platform="instagram" data-service="ig-comments">
+          <div class="si-icon">💬</div>
+          <div class="si-info">
+            <div class="si-name">Instagram — Comments</div>
+            <div class="si-desc">Tambah komentar custom di postingan Instagram.</div>
+          </div>
+          <div class="si-price">Rp 25rb<small>per 50 komentar</small></div>
+        </div>
+
+        <!-- TIKTOK -->
+        <div class="service-item reveal" data-platform="tiktok" data-service="tt-followers">
+          <div class="si-icon">🎵</div>
+          <div class="si-info">
+            <div class="si-name">TikTok — Followers</div>
+            <div class="si-desc">Tambah followers akun TikTok lu.</div>
+          </div>
+          <div class="si-price">Rp 12rb<small>per 1.000</small></div>
+        </div>
+
+        <div class="service-item reveal" data-platform="tiktok" data-service="tt-likes">
+          <div class="si-icon">🩷</div>
+          <div class="si-info">
+            <div class="si-name">TikTok — Likes</div>
+            <div class="si-desc">Boost likes video TikTok.</div>
+          </div>
+          <div class="si-price">Rp 8rb<small>per 1.000</small></div>
+        </div>
+
+        <div class="service-item reveal" data-platform="tiktok" data-service="tt-views">
+          <div class="si-icon">🔥</div>
+          <div class="si-info">
+            <div class="si-name">TikTok — Views</div>
+            <div class="si-desc">Tambah views video TikTok. Bantu masuk FYP.</div>
+          </div>
+          <div class="si-price">Rp 5rb<small>per 10.000</small></div>
+        </div>
+
+        <!-- YOUTUBE -->
+        <div class="service-item reveal" data-platform="youtube" data-service="yt-subscribers">
+          <div class="si-icon">▶️</div>
+          <div class="si-info">
+            <div class="si-name">YouTube — Subscribers</div>
+            <div class="si-desc">Tambah subscriber channel YouTube.</div>
+          </div>
+          <div class="si-price">Rp 30rb<small>per 1.000</small></div>
+        </div>
+
+        <div class="service-item reveal" data-platform="youtube" data-service="yt-views">
+          <div class="si-icon">📺</div>
+          <div class="si-info">
+            <div class="si-name">YouTube — Views</div>
+            <div class="si-desc">Tambah views video YouTube.</div>
+          </div>
+          <div class="si-price">Rp 15rb<small>per 1.000</small></div>
+        </div>
+
+        <div class="service-item reveal" data-platform="youtube" data-service="yt-likes">
+          <div class="si-icon">👍</div>
+          <div class="si-info">
+            <div class="si-name">YouTube — Likes</div>
+            <div class="si-desc">Tambah likes video YouTube.</div>
+          </div>
+          <div class="si-price">Rp 20rb<small>per 1.000</small></div>
+        </div>
+
+        <!-- TWITTER/X -->
+        <div class="service-item reveal" data-platform="twitter" data-service="tw-followers">
+          <div class="si-icon">✖️</div>
+          <div class="si-info">
+            <div class="si-name">Twitter/X — Followers</div>
+            <div class="si-desc">Tambah followers akun Twitter/X.</div>
+          </div>
+          <div class="si-price">Rp 20rb<small>per 1.000</small></div>
+        </div>
+
+        <div class="service-item reveal" data-platform="twitter" data-service="tw-likes">
+          <div class="si-icon">🤍</div>
+          <div class="si-info">
+            <div class="si-name">Twitter/X — Likes</div>
+            <div class="si-desc">Boost likes tweet atau postingan X.</div>
+          </div>
+          <div class="si-price">Rp 12rb<small>per 1.000</small></div>
+        </div>
+
+        <!-- TELEGRAM -->
+        <div class="service-item reveal" data-platform="telegram" data-service="tg-members">
+          <div class="si-icon">✈️</div>
+          <div class="si-info">
+            <div class="si-name">Telegram — Members Grup/Channel</div>
+            <div class="si-desc">Tambah member grup atau subscriber channel Telegram.</div>
+          </div>
+          <div class="si-price">Rp 18rb<small>per 1.000</small></div>
+        </div>
+
+        <div class="service-item reveal" data-platform="telegram" data-service="tg-views">
+          <div class="si-icon">📡</div>
+          <div class="si-info">
+            <div class="si-name">Telegram — Views Post</div>
+            <div class="si-desc">Tambah views postingan channel Telegram.</div>
+          </div>
+          <div class="si-price">Rp 7rb<small>per 1.000</small></div>
+        </div>
+
+      </div>
+
+      <!-- Order Form -->
+      <div class="order-panel reveal" id="order-panel">
+        <div class="order-panel-title">📲 Form Order Sosial Media</div>
+        <form class="crv-form" id="socialForm">
+          <div class="form-grid">
+            <div class="fg">
+              <label for="f-name">NAMA / BRAND</label>
+              <input type="text" id="f-name" placeholder="Nama lu atau brand" data-required>
+              <span class="ferr" id="err-f-name">Wajib diisi.</span>
+            </div>
+            <div class="fg">
+              <label for="f-contact">KONTAK (WA/IG)</label>
+              <input type="text" id="f-contact" placeholder="@username atau nomor WA" data-required>
+              <span class="ferr" id="err-f-contact">Wajib diisi.</span>
+            </div>
+            <div class="fg full">
+              <label for="f-service">JENIS LAYANAN</label>
+              <select id="f-service" data-required>
+                <option value="">Pilih layanan</option>
+                <optgroup label="Instagram">
+                  <option value="ig-followers">IG Followers — Rp 15rb/1K</option>
+                  <option value="ig-likes">IG Likes — Rp 10rb/1K</option>
+                  <option value="ig-views">IG Views Reels — Rp 8rb/1K</option>
+                  <option value="ig-comments">IG Comments — Rp 25rb/50 komentar</option>
+                </optgroup>
+                <optgroup label="TikTok">
+                  <option value="tt-followers">TikTok Followers — Rp 12rb/1K</option>
+                  <option value="tt-likes">TikTok Likes — Rp 8rb/1K</option>
+                  <option value="tt-views">TikTok Views — Rp 5rb/10K</option>
+                </optgroup>
+                <optgroup label="YouTube">
+                  <option value="yt-subscribers">YT Subscribers — Rp 30rb/1K</option>
+                  <option value="yt-views">YT Views — Rp 15rb/1K</option>
+                  <option value="yt-likes">YT Likes — Rp 20rb/1K</option>
+                </optgroup>
+                <optgroup label="Twitter/X">
+                  <option value="tw-followers">Twitter Followers — Rp 20rb/1K</option>
+                  <option value="tw-likes">Twitter Likes — Rp 12rb/1K</option>
+                </optgroup>
+                <optgroup label="Telegram">
+                  <option value="tg-members">Telegram Members — Rp 18rb/1K</option>
+                  <option value="tg-views">Telegram Views — Rp 7rb/1K</option>
+                </optgroup>
+              </select>
+              <span class="ferr" id="err-f-service">Pilih dulu layanannya.</span>
+            </div>
+            <div class="fg">
+              <label for="f-link">LINK AKUN / POSTINGAN</label>
+              <input type="text" id="f-link" placeholder="https://instagram.com/username" data-required>
+              <span class="ferr" id="err-f-link">Masukkan link akun atau postingan.</span>
+            </div>
+            <div class="fg">
+              <label for="f-qty">JUMLAH YANG DIINGINKAN</label>
+              <input type="text" id="f-qty" placeholder="Contoh: 1000, 5000, 10000" data-required>
+              <span class="ferr" id="err-f-qty">Isi jumlahnya.</span>
+            </div>
+            <div class="fg full">
+              <label for="f-notes">CATATAN TAMBAHAN (OPSIONAL)</label>
+              <textarea id="f-notes" placeholder="Ada request khusus? Tulis di sini."></textarea>
+            </div>
+          </div>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center">
+            <button type="submit" class="btn btn-purple" data-label="KIRIM ORDER">KIRIM ORDER</button>
+            <a href="https://wa.me/62XXXXXXXXXXXX" class="btn btn-ghost" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              CHAT WA
+            </a>
+          </div>
+          <div class="success-banner">Order masuk! Gw bakal kabarin lu dalam 24 jam. 🚀</div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
